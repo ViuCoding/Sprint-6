@@ -8,3 +8,12 @@ export default {
   props: ["history"],
 };
 </script>
+
+<style>
+p {
+  text-align: center;
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 30px;
+}
+</style>
