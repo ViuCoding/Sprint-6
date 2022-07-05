@@ -5,16 +5,20 @@
 <script>
 export default {
   name: "Scene",
-  props: ["history"],
+  props: ["history", "sentence"],
 };
 </script>
 
-<style>
+<style scoped>
 p {
   text-align: center;
   border: 2px solid black;
   padding: 1rem;
   border-radius: 30px;
 }
+
+.active {
+  background: turquoise;
+  color: black;
+}
 </style>
-   

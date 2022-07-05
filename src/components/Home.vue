@@ -1,6 +1,6 @@
 <template>
-  <Buttons />
-  <Scene :history="history" />
+  <Buttons @change="changeClass" />
+  <Scene :history="history" :sentence="currentSentence" />
 </template>
 
 <script>
@@ -14,8 +14,20 @@ export default {
   data() {
     return {
       history: ["Our hero was floating in outer space when in the distance he spotted a spaceship,", "He was curious about the interior of the ship and began to inspect it. He came to a room with two doors.", "The hero decided to go through the door that took him home,", "Meanwhile, other heroes weren't so lucky in their choice..."],
-      currentSentence: 1,
+      currentSentence: 0,
     };
+  },
+  methods: {
+    changeClass(id) {
+      console.log(id);
+      // if (id === 1) {
+      //   this.currentSentence--;
+      //   console.log(this.currentSentence);
+      // } else {
+      //   this.currentSentence++;
+      //   console.log(this.currentSentence);
+      // }
+    },
   },
 };
 </script>

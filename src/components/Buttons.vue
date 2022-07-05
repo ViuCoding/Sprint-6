@@ -1,7 +1,7 @@
 <template>
   <div class="button-block">
-    <button @click="test">Previous</button>
-    <button @click="test">Next</button>
+    <button @click="changeSentence">Previous</button>
+    <button @click="changeSentence">Next</button>
   </div>
 </template>
 
@@ -10,8 +10,9 @@ export default {
   name: "Buttons",
 
   methods: {
-    test() {
-      console.log("CLICK");
+    changeSentence(id) {
+      this.$emit("change", id);
+      console.log("button", id);
     },
   },
 };
