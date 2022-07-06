@@ -11,6 +11,7 @@
   <div v-if="showCanvass">
     <Buttons @changePhrase="changePhrase" />
     <Scene :story="story" :sentence="currentSentence" />
+    <img :src="require(`@/assets/img/${currentImg}.jpg`)" alt="" />
   </div>
 </template>
 
@@ -24,8 +25,22 @@ export default {
   props: [],
   data() {
     return {
-      story: ["Our hero was floating in outer space when in the distance he spotted a spaceship,", "He was curious about the interior of the ship and began to inspect it. He came to a room with two doors.", "The hero decided to go through the door that took him home,", "Meanwhile, other heroes weren't so lucky in their choice..."],
+      story: [
+        {
+          txt: "Our hero was floating in outer space when in the distance he spotted a spaceship",
+        },
+        {
+          txt: "He was curious about the interior of the ship and began to inspect it. He came to a room with two doors.",
+        },
+        {
+          txt: "The hero decided to go through the door that took him home",
+        },
+        {
+          txt: "Meanwhile, other heroes weren't so lucky in their choice...",
+        },
+      ],
       currentSentence: 0,
+      currentImg: 1,
       showSplash: true,
       showCanvass: false,
     };
@@ -34,12 +49,16 @@ export default {
     changePhrase(id) {
       if (id === 1) {
         this.currentSentence--;
+        this.currentImg--;
       } else {
         this.currentSentence++;
+        this.currentImg++;
       }
 
       if (this.currentSentence < 0) this.currentSentence = 3;
       if (this.currentSentence > 3) this.currentSentence = 0;
+      if (this.currentImg < 1) this.currentImg = 4;
+      if (this.currentImg > 4) this.currentImg = 1;
     },
 
     toggleCanvass() {
@@ -51,6 +70,13 @@ export default {
 </script>
 
 <style>
+img {
+  position: fixed;
+  top: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+}
 #splash {
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url("../assets/img/bg1.jpg") center/cover;
   min-height: 100vh;
