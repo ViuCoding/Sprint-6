@@ -1,6 +1,6 @@
 <template>
   <Buttons @changePhrase="changePhrase" />
-  <Scene :history="history" :sentence="currentSentence" />
+  <Scene :story="story" :sentence="currentSentence" />
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
   props: [],
   data() {
     return {
-      history: ["Our hero was floating in outer space when in the distance he spotted a spaceship,", "He was curious about the interior of the ship and began to inspect it. He came to a room with two doors.", "The hero decided to go through the door that took him home,", "Meanwhile, other heroes weren't so lucky in their choice..."],
+      story: ["Our hero was floating in outer space when in the distance he spotted a spaceship,", "He was curious about the interior of the ship and began to inspect it. He came to a room with two doors.", "The hero decided to go through the door that took him home,", "Meanwhile, other heroes weren't so lucky in their choice..."],
       currentSentence: 0,
     };
   },
@@ -21,11 +21,12 @@ export default {
     changePhrase(id) {
       if (id === 1) {
         this.currentSentence--;
-        console.log("currentSentence is " + this.currentSentence);
       } else {
         this.currentSentence++;
-        console.log("currentSentence is " + this.currentSentence);
       }
+
+      if (this.currentSentence < 0) this.currentSentence = 3;
+      if (this.currentSentence > 3) this.currentSentence = 0;
     },
   },
 };

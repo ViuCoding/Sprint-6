@@ -17,14 +17,18 @@ export default {
 }
 
 .button-block button {
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 30px;
   border: none;
   background-color: crimson;
   color: white;
   font-size: 1rem;
   cursor: crosshair;
-  width: 40%;
+  width: 20%;
   margin: 1rem;
+}
+
+.button-block button:active {
+  transform: scale(0.96);
 }
 </style>
