@@ -1,20 +1,13 @@
 <template>
   <div class="button-block">
-    <button @click="changeSentence">Previous</button>
-    <button @click="changeSentence">Next</button>
+    <button @click="$emit('changePhrase', 1)">Previous</button>
+    <button @click="$emit('changePhrase', 2)">Next</button>
   </div>
 </template>
 
 <script>
 export default {
   name: "Buttons",
-
-  methods: {
-    changeSentence(id) {
-      this.$emit("change", id);
-      console.log("button", id);
-    },
-  },
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <Buttons @change="changeClass" />
+  <Buttons @changePhrase="changePhrase" />
   <Scene :history="history" :sentence="currentSentence" />
 </template>
 
@@ -18,15 +18,14 @@ export default {
     };
   },
   methods: {
-    changeClass(id) {
-      console.log(id);
-      // if (id === 1) {
-      //   this.currentSentence--;
-      //   console.log(this.currentSentence);
-      // } else {
-      //   this.currentSentence++;
-      //   console.log(this.currentSentence);
-      // }
+    changePhrase(id) {
+      if (id === 1) {
+        this.currentSentence--;
+        console.log("currentSentence is " + this.currentSentence);
+      } else {
+        this.currentSentence++;
+        console.log("currentSentence is " + this.currentSentence);
+      }
     },
   },
 };
